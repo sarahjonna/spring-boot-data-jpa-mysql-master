@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bezkoder.spring.datajpa.model.Tutorial;
 import com.bezkoder.spring.datajpa.repository.TutorialRepository;
 
-@CrossOrigin(origins = "http://localhost:9000")
+@CrossOrigin(origins = "http://localhost:9000", maxAge = 3600, allowCredentials="true")
+//@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class TutorialController {
