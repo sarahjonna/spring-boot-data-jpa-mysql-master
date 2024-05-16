@@ -1,21 +1,9 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+node{
+    stage('SCM Checkout') {
+           git 'https://github.com/sarahjonna/spring-boot-data-jpa-mysql-master'
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+         stage('Compile-Package') {
+          sh 'mvn package'
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
+       
 }
