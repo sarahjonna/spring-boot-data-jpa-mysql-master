@@ -1,14 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
+        stage('Build') { 
             steps {
-                git branch: 'main', 
-                    url: 'https://github.com/sarahjonna/spring-boot-data-jpa-mysql-master'
+                sh 'mvn -B -DskipTests clean package' 
             }
-        }
-         stage('Compile-Package') {
-          sh 'mvn package'
         }
     }
 }
